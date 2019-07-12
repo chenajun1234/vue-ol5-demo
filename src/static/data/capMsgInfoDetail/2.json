@@ -1,0 +1,12 @@
+{
+    "status": 0,
+    "message": [
+        {
+            "add_time":"2017-11-13 17:12:35",
+            "click":2,
+            "id":2,
+            "title":"cap 自定义方法如何写",
+            "content": "vue基本语法 ● v-if指令 ● v-show指令 ○  ● v-else指令  ○ 可以用v-else指令为v-if或v-show添加一个“else块”。v-else元素必须立即跟在v-if或v-show元素的后面——否则它不能被识别。● v-for指令● v-bind指令 "
+        }
+    ]
+}
