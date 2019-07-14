@@ -19,6 +19,10 @@ import VueRouter from 'vue-router';
 //安装插件
 Vue.use(VueRouter);
 
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 //自己公共样式
 import './static/css/global.css';
 
@@ -32,8 +36,7 @@ Vue.prototype.$ajax=Axios;
 
 //路由规则
 let router = new VueRouter({	
-	routes:[
-		{path:'/',redirect:{name:'Accessible'}},//重定向
+	routes:[	
 		{name:'Accessible',path:'/accessible',component:Accessible},
 		{name:'Animation',path:'/animation',component:Animation},
 		{name:'ArcgisImage',path:'/arcgis-image',component:ArcgisImage},

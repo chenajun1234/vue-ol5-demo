@@ -1,54 +1,67 @@
 <template>
-	<div id="apps">  		
-       <div id="nav">
-          <router-link to="/">Accessible</router-link> |
-          <router-link to="/animation">Animation</router-link> |
-          <router-link to="/arcgis-image">ArcgisImage</router-link> |
-          <router-link to="/arcgis-tiled">ArcgisTiled</router-link> |
-          <router-link to="/xyz">万能简单地图XYZ</router-link> |
-          <router-link to="/geoJson">加载geoJson</router-link> |
-          <router-link to="/vectorDemo">矢量图和简单方法示例</router-link>           
-      </div>
-      <router-view></router-view>       
-    </div>
+<div>
+<el-container style="height: auto; border: 1px solid #eee">
+  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+    <el-menu :default-active="$route.path" :default-openeds="['1']"  router>
+   <!-- <el-menu :default-openeds="['1']">-->
+      <el-submenu index="1">
+        <template slot="title">基础地图</template> 
+            <template  v-for="(item) in  $router.options.routes">                
+                <el-menu-item :key="item.path" :index="item.path">
+                   {{ item.name }}
+                </el-menu-item>  
+            </template>
+      </el-submenu>     
+    </el-menu>
+  </el-aside>
+  
+  <el-container>
+    <el-header style="text-align: left; font-size: 12px">
+      <span id="titleText">openLayers 地图</span>
+      <el-dropdown>
+        <i class="el-icon-setting" style="margin-right: 15px"></i>
+        <el-dropdown-menu slot="dropdown">
+          <el-dropdown-item>查看</el-dropdown-item>
+          <el-dropdown-item>新增</el-dropdown-item>
+          <el-dropdown-item>删除</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>      
+    </el-header>    
+    <el-main>
+       <router-view></router-view> 
+    </el-main>
+  </el-container>
+</el-container>
+
+</div>    
 </template>
-
-<script>
-export default { 
-  data () {
-    return {     
-    }
+<style>
+  .el-header {
+    background-color: #B3C0D1;
+    color: #333;
+    line-height: 60px;
   }
-}
-</script>
-
-<style lang="less">
-    @import "~ol/ol.css";
-
-    #apps {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-    }
-
-    #nav {
-        background-color: beige;
-        padding: 20px;
-        position: absolute;        
-        left:30%;
-        z-index:99999;
-        a {
-            font-weight: bold;
-            color: #2c3e50;
-            &.router-link-exact-active {
-                color: #42b983;
-            }
-        }
-    }
-    #map{
-         
-          height: auto;
+  
+  .el-aside {
+    color: #333;
+  }
+  #map{         
+        height: 500px;
     }
 </style>
+
+<script>
+  export default {
+    data() {      
+      return {
+        baseNavList:[
+            {name:'/accessible',navItem:'Accessible',indexNum:1},
+            {name:'/animation',navItem:'Animation',indexNum:2},
+            {name:'/arcgis-image',navItem:'ArcgisImage',indexNum:3},
+            {name:'/arcgis-tiled',navItem:'ArcgisTiled',indexNum:4},
+            {name:'/xyz',navItem:'XYZ',indexNum:5}
+        ]
+      }
+    }
+  };
+</script>

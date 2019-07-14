@@ -4,10 +4,10 @@
         <div id="map" class="map"></div>       
        
         <div id="tools">
-          <button @click="openModify">打开修改功能</button>
-          <button @click="openDraw">打开绘制功能</button>
-          <a id="clear">Clear</a>
-          <a id="download" download="features.json">Download</a>
+          <el-button type="primary" @click="openModify">打开修改功能</el-button>         
+          <el-button type="primary" @click="openDraw">打开绘制功能</el-button>
+          <el-button id="clear">Clear</el-button>     
+          <a id="download" type="primary" download="features.json">Download</a>
         </div>
 
      </div>
@@ -95,8 +95,8 @@
             source: source
         })); 
         //清除数据功能
-         const clear = document.getElementById('clear');
-            clear.addEventListener('click', function() {
+        const clear = document.getElementById('clear');
+        clear.addEventListener('click', function() {
               source.clear();
         });
         //下载功能
@@ -124,6 +124,9 @@
                 source: source
             })); 
         },
+        clearMapData(){
+          this.source.clear();
+        },        
         clamp(value, low, high) {
           return Math.max(low, Math.min(value, high));
         },
