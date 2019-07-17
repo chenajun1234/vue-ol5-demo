@@ -11,6 +11,7 @@ import ArcgisImage from './components/ol/ArcgisImage.vue';
 import geoJson from './components/ol/LoadGeoJson.vue';
 import ArcgisTiled from './components/ol/ArcgisTiled.vue';
 import VectorDemo from './components/ol/VectorDemo.vue';
+import DrawFeatures from './components/ol/DrawFeatures.vue';
 
 
 
@@ -43,7 +44,8 @@ let router = new VueRouter({
 		{name:'ArcgisTiled',path:'/arcgis-tiled',component:ArcgisTiled},
 		{name:'XYZ',path:'/xyz',component:XYZ},
 		{name:'geoJson',path:'/geoJson',component:geoJson},
-		{name:'VectorDemo',path:'/vectorDemo',component:VectorDemo}
+		{name:'VectorDemo',path:'/vectorDemo',component:VectorDemo},
+		{name:'DrawFeatures',path:'/drawFeatures',component:DrawFeatures}
 		
 	]
 	
