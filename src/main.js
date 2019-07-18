@@ -12,6 +12,8 @@ import geoJson from './components/ol/LoadGeoJson.vue';
 import ArcgisTiled from './components/ol/ArcgisTiled.vue';
 import VectorDemo from './components/ol/VectorDemo.vue';
 import DrawFeatures from './components/ol/DrawFeatures.vue';
+import WebGLDemo from './components/ol/WebGLDemo.vue';
+
 
 
 
@@ -45,8 +47,8 @@ let router = new VueRouter({
 		{name:'XYZ',path:'/xyz',component:XYZ},
 		{name:'geoJson',path:'/geoJson',component:geoJson},
 		{name:'VectorDemo',path:'/vectorDemo',component:VectorDemo},
-		{name:'DrawFeatures',path:'/drawFeatures',component:DrawFeatures}
-		
+		{name:'DrawFeatures',path:'/drawFeatures',component:DrawFeatures},
+		{name:'WebGLDemo',path:'/webGLDemo',component:WebGLDemo}
 	]
 	
 })

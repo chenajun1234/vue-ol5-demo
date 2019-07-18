@@ -52,16 +52,5 @@
 
 <script>
   export default {
-    data() {      
-      return {
-        baseNavList:[
-            {name:'/accessible',navItem:'Accessible',indexNum:1},
-            {name:'/animation',navItem:'Animation',indexNum:2},
-            {name:'/arcgis-image',navItem:'ArcgisImage',indexNum:3},
-            {name:'/arcgis-tiled',navItem:'ArcgisTiled',indexNum:4},
-            {name:'/xyz',navItem:'XYZ',indexNum:5}
-        ]
-      }
-    }
   };
 </script>
