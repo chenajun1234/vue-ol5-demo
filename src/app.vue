@@ -5,10 +5,10 @@
     <el-menu :default-active="$route.path" :default-openeds="['1']"  router>
    <!-- <el-menu :default-openeds="['1']">-->
       <el-submenu index="1">
-        <template slot="title">基础地图</template> 
+        <template slot="title">openLayers 地图</template> 
             <template  v-for="(item) in  $router.options.routes">                
                 <el-menu-item :key="item.path" :index="item.path">
-                   {{ item.name }}
+                   {{ item.CNName }}
                 </el-menu-item>  
             </template>
       </el-submenu>     
@@ -17,15 +17,15 @@
   
   <el-container>
     <el-header style="text-align: left; font-size: 12px">
-      <span id="titleText">openLayers 地图</span>
-      <el-dropdown>
-        <i class="el-icon-setting" style="margin-right: 15px"></i>
-        <el-dropdown-menu slot="dropdown">
-          <el-dropdown-item>查看</el-dropdown-item>
-          <el-dropdown-item>新增</el-dropdown-item>
-          <el-dropdown-item>删除</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>      
+      <span id="titleText">示例地图</span>
+     <!--  <el-dropdown>
+         <i class="el-icon-setting" style="margin-right: 15px"></i>
+         <el-dropdown-menu slot="dropdown">
+           <el-dropdown-item>查看</el-dropdown-item>
+           <el-dropdown-item>新增</el-dropdown-item>
+           <el-dropdown-item>删除</el-dropdown-item>
+         </el-dropdown-menu>
+       </el-dropdown>     -->  
     </el-header>    
     <el-main>
        <router-view></router-view> 

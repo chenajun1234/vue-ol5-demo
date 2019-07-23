@@ -4,15 +4,16 @@ import Vue from 'vue'
 //引入App.vue
 import App from './app.vue';
 
-import Accessible from './components/ol/Accessible.vue'; 
-import Animation from './components/ol/Animation.vue'; 
-import XYZ from './components/ol/XYZ.vue'; 
-import ArcgisImage from './components/ol/ArcgisImage.vue'; 
+import Accessible from './components/ol/Accessible.vue';
+import Animation from './components/ol/Animation.vue';
+import XYZ from './components/ol/XYZ.vue';
+import ArcgisImage from './components/ol/ArcgisImage.vue';
 import geoJson from './components/ol/LoadGeoJson.vue';
 import ArcgisTiled from './components/ol/ArcgisTiled.vue';
 import VectorDemo from './components/ol/VectorDemo.vue';
 import DrawFeatures from './components/ol/DrawFeatures.vue';
 import WebGLDemo from './components/ol/WebGLDemo.vue';
+import LayerSort from './components/ol/LayerSort.vue';
 
 
 
@@ -35,29 +36,31 @@ import Axios from 'axios';
 //Axios.default.baseURL="";
 
 //挂载原型
-Vue.prototype.$ajax=Axios;
+Vue.prototype.$ajax = Axios;
 
 //路由规则
-let router = new VueRouter({	
-	routes:[	
-		{name:'Accessible',path:'/accessible',component:Accessible},
-		{name:'Animation',path:'/animation',component:Animation},
-		{name:'ArcgisImage',path:'/arcgis-image',component:ArcgisImage},
-		{name:'ArcgisTiled',path:'/arcgis-tiled',component:ArcgisTiled},
-		{name:'XYZ',path:'/xyz',component:XYZ},
-		{name:'geoJson',path:'/geoJson',component:geoJson},
-		{name:'VectorDemo',path:'/vectorDemo',component:VectorDemo},
-		{name:'DrawFeatures',path:'/drawFeatures',component:DrawFeatures},
-		{name:'WebGLDemo',path:'/webGLDemo',component:WebGLDemo}
-	]
-	
+let router = new VueRouter({
+    routes: [
+        { name: 'Accessible', CNName: 'Accessible', path: '/accessible', component: Accessible },
+        { name: 'Animation', CNName: '移动地图', path: '/animation', component: Animation },
+        { name: 'ArcgisImage', CNName: 'ArcgisImage', path: '/arcgis-image', component: ArcgisImage },
+        { name: 'ArcgisTiled', CNName: 'ArcgisTiled', path: '/arcgis-tiled', component: ArcgisTiled },
+        { name: 'XYZ', CNName: '万能图', path: '/xyz', component: XYZ },
+        { name: 'geoJson', CNName: '加载geoJson', path: '/geoJson', component: geoJson },
+        { name: 'VectorDemo', CNName: '矢量地图', path: '/vectorDemo', component: VectorDemo },
+        { name: 'DrawFeatures', CNName: '绘制地图', path: '/drawFeatures', component: DrawFeatures },
+        { name: 'WebGLDemo', CNName: 'WebGLDemo', path: '/webGLDemo', component: WebGLDemo },
+        { name: 'LayerSort', CNName: '图层叠加及管理', path: '/layerSort', component: LayerSort }
+
+    ]
+
 })
 
 
 //创建vue实例
 //构建示例
 new Vue({
-  el: '#app',
-  router,
-  render:c=>c(App)
+    el: '#app',
+    router,
+    render: c => c(App)
 })
