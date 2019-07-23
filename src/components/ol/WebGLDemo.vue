@@ -1,5 +1,5 @@
 <template>
-   <div>     
+   <div id='webGLContainer'>     
       <div id="map" class="map"></div>
       <div id="year"></div>
    </div>
@@ -13,7 +13,7 @@ import { Vector as VectorSource, Stamen } from 'ol/source';
 import Feature from 'ol/Feature';
 import Point from 'ol/geom/Point';
 
-import Renderer from 'ol/renderer/webgl/PointsLayer';
+import Renderer from 'ol/renderer/webgl/PointsLayer';//这个类需要ol6
 import { clamp } from 'ol/math';
 const color = [1, 0, 0, 0.5];
 //我们将使用WebGL PointsLayer渲染器创建自定义图层。要创建自定义图层，
@@ -27,15 +27,33 @@ class CustomLayer extends VectorLayer {
             sizeCallback: function(feature) {
                 return 18 * clamp(feature.get('mass') / 200000, 0, 1) + 8;
             },
+            opacityCallback: function(feature) {
+                // here the opacity channel of the vertices is used to store the year of impact
+                return feature.get('year');
+            },
+            uniforms: {
+                u_currentYear: function() {
+                    return currentYear;
+                }
+            },
             //要将我们的点渲染为圆圈(本来是方块)，我们需要创建自定义片段着色器。我们将着色器作为fragmentShader渲染器构造函数的第二个参数的字符串属性传递给WebGL点图层渲染器。片段着色器是用OpenGL着色语言（GLSL）编写的。如果您有兴趣了解有关着色器和WebGL的更多信息，请查看着色器。
+            //shader内容介绍:https://thebookofshaders.com/01/?lan=ch   http://openglbook.com/chapter-0-preface-what-is-opengl.html
             fragmentShader: `
-              precision mediump float;
-              varying vec2 v_texCoord;
-              varying vec4 v_color;
-              void main(void) {
+                precision mediump float;
+                uniform float u_currentYear;
+                varying vec2 v_texCoord;
+                varying vec4 v_color;
+                varying float v_opacity;
+                void main(void) {
+                float impactYear = v_opacity;
+                if (impactYear > u_currentYear) {
+                    discard;
+                }
                 vec2 texCoord = v_texCoord * 2.0 - vec2(1.0, 1.0);
                 float sqRadius = texCoord.x * texCoord.x + texCoord.y * texCoord.y;
-                float value = 2.0 * (1.0 - sqRadius);
+                
+                float factor = pow(1.1, u_currentYear - impactYear);
+                float value = 2.0 * (1.0 - sqRadius * factor);
                 float alpha = smoothstep(0.0, 1.0, value);
                 gl_FragColor = v_color;
                 gl_FragColor.a *= alpha;
@@ -123,6 +141,9 @@ export default {
 }
 </script>
 <style type="text/css" media="screen">
+  #webGLContainer{
+      position: relative;
+  }
   #year {
     position: absolute;
     bottom: 1em;
