@@ -14,6 +14,7 @@ import VectorDemo from './components/ol/VectorDemo.vue';
 import DrawFeatures from './components/ol/DrawFeatures.vue';
 import WebGLDemo from './components/ol/WebGLDemo.vue';
 import LayerSort from './components/ol/LayerSort.vue';
+import LOD from './components/ol/LOD.vue';
 
 
 
@@ -50,7 +51,8 @@ let router = new VueRouter({
         { name: 'VectorDemo', CNName: '矢量地图', path: '/vectorDemo', component: VectorDemo },
         { name: 'DrawFeatures', CNName: '绘制地图', path: '/drawFeatures', component: DrawFeatures },
         { name: 'WebGLDemo', CNName: 'WebGLDemo', path: '/webGLDemo', component: WebGLDemo },
-        { name: 'LayerSort', CNName: '图层叠加及管理', path: '/layerSort', component: LayerSort }
+        { name: 'LayerSort', CNName: '图层叠加及管理', path: '/layerSort', component: LayerSort },
+        { name: 'LOD', CNName: 'LOD与分辨率', path: '/LOD', component: LOD }
 
     ]
 
