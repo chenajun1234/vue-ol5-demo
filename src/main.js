@@ -15,6 +15,10 @@ import DrawFeatures from './components/ol/DrawFeatures.vue';
 import WebGLDemo from './components/ol/WebGLDemo.vue';
 import LayerSort from './components/ol/LayerSort.vue';
 import LOD from './components/ol/LOD.vue';
+import OverLayDemo from './components/ol/OverLayDemo.vue';
+import OverLayAnimation from './components/ol/OverLayAnimation.vue';
+import StyleVectorDemo from './components/ol/StyleVectorDemo.vue';
+
 
 
 
@@ -52,7 +56,11 @@ let router = new VueRouter({
         { name: 'DrawFeatures', CNName: '绘制地图', path: '/drawFeatures', component: DrawFeatures },
         { name: 'WebGLDemo', CNName: 'WebGLDemo', path: '/webGLDemo', component: WebGLDemo },
         { name: 'LayerSort', CNName: '图层叠加及管理', path: '/layerSort', component: LayerSort },
-        { name: 'LOD', CNName: 'LOD与分辨率', path: '/LOD', component: LOD }
+        { name: 'LOD', CNName: 'LOD与分辨率', path: '/LOD', component: LOD },
+        { name: 'OverLayDemo', CNName: '应用overlay锚点', path: '/overLayDemo', component: OverLayDemo },
+        { name: 'OverLayAnimation', CNName: '应用overlay动画', path: '/overLayAnimation', component: OverLayAnimation },
+        { name: 'StyleVectorDemo', CNName: '应用style添加图标', path: '/styleVectorDemo', component: StyleVectorDemo }
+        
 
     ]
 

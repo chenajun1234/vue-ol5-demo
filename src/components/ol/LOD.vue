@@ -1,6 +1,9 @@
 <template>
-    <div>
+    <div id='mapDIV'>
         <div id="map" class="map"></div>
+        <div id ='mapInfo'>
+          <span>当前层级：</span><span id="zoom"></span><span>分辨率：</span><span id="resolution"></span>
+        </div>
     </div>
 </template>
 <script>
@@ -42,7 +45,26 @@ export default {
             })
         });
 
+        // 监听层级变化，输出当前层级和分辨率
+    this.mapObj.getView().on('change:resolution', function(){
+        document.getElementById('zoom').innerHTML =  this.getZoom() + '，';
+        document.getElementById('resolution').innerHTML = this.getResolution();
+    })
+
+    document.getElementById('zoom').innerHTML = this.mapObj.getView().getZoom() + '，';
+    document.getElementById('resolution').innerHTML = + this.mapObj.getView().getResolution();
+
     },
     methods: {}
 }
 </script>
+<style type="text/css" media="screen">
+#mapDIV{
+  position: relative;
+}
+  
+#mapInfo{
+  position: absolute;
+  top: -20px;
+}
+</style>
