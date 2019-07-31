@@ -18,8 +18,14 @@ import LOD from './components/ol/LOD.vue';
 import OverLayDemo from './components/ol/OverLayDemo.vue';
 import OverLayAnimation from './components/ol/OverLayAnimation.vue';
 import StyleVectorDemo from './components/ol/StyleVectorDemo.vue';
-
-
+import StyleSVGVector from './components/ol/StyleSVGVector.vue';
+import StyleGeometryVector from './components/ol/StyleGeometryVector.vue';
+import StyleCanvasVector from './components/ol/StyleCanvasVector.vue';
+import StyleTextVector from './components/ol/StyleTextVector.vue';
+import EventDemo from './components/ol/EventDemo.vue';
+import CustomerEvent from './components/ol/CustomerEvent.vue';
+import SelectInteraction1 from './components/ol/SelectInteraction1.vue';
+import SelectInteraction2 from './components/ol/SelectInteraction2.vue';
 
 
 
@@ -59,9 +65,18 @@ let router = new VueRouter({
         { name: 'LOD', CNName: 'LOD与分辨率', path: '/LOD', component: LOD },
         { name: 'OverLayDemo', CNName: '应用overlay锚点', path: '/overLayDemo', component: OverLayDemo },
         { name: 'OverLayAnimation', CNName: '应用overlay动画', path: '/overLayAnimation', component: OverLayAnimation },
-        { name: 'StyleVectorDemo', CNName: '应用style添加图标', path: '/styleVectorDemo', component: StyleVectorDemo }
+        { name: 'StyleVectorDemo', CNName: '应用style添加图标', path: '/styleVectorDemo', component: StyleVectorDemo },
+        { name: 'StyleSVGVector', CNName: '应用style添加SVG图标', path: '/styleSVGVector', component: StyleSVGVector },
+        { name: 'StyleGeometryVector', CNName: '应用style添加内置几何图标', path: '/styleGeometryVector', component: StyleGeometryVector },
+        { name: 'StyleCanvasVector', CNName: '应用style添加Canvas图标', path: '/styleCanvasVector', component: StyleCanvasVector },
+        { name: 'StyleTextVector', CNName: '应用style添加文字标注', path: '/styleTextVector', component: StyleTextVector },
+        { name: 'EventDemo', CNName: '常用事件', path: '/eventDemo', component: EventDemo },
+        { name: 'CustomerEvent', CNName: '自定义事件', path: '/customerEvent', component: CustomerEvent },
+        { name: 'SelectInteraction1', CNName: '交互-选中1', path: '/selectInteraction1', component: SelectInteraction1 },
+        { name: 'SelectInteraction2', CNName: '交互-选中2', path: '/selectInteraction2', component: SelectInteraction2 }
         
-
+        
+        
     ]
 
 })

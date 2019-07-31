@@ -1,7 +1,7 @@
 <template>
 <div>
 <el-container style="height: auto; border: 1px solid #eee">
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+  <el-aside width="250px" style="background-color: rgb(238, 241, 246)">
     <el-menu :default-active="$route.path" :default-openeds="['1']"  router>
    <!-- <el-menu :default-openeds="['1']">-->
       <el-submenu index="1">
