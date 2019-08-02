@@ -69,7 +69,7 @@
         if (this.selectVal !== 'None') {
           this.draw = new Draw({
             type: this.selectVal,//
-            freehand: true,//写意图 相当于画笔一样 按住鼠标随便画 默认关闭
+           // freehand: true,//写意图 相当于画笔一样 按住鼠标随便画 默认关闭
             source: vctSource           
           });
           this.mapObj.addInteraction(this.draw);

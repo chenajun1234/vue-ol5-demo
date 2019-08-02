@@ -2,7 +2,7 @@
     <div id='mapDIV'>
         <!--注意：需要设置tabindex，才能使div获得键盘事件-->
         <div id="map" class="map"></div>
-        <div ref='info'>{{infoText}}</div>
+        <button type="" @click='unselectFeature'>取消选中</button>
     </div>
 </template>
 <script>
@@ -18,12 +18,13 @@ import { transform } from 'ol/proj.js'
 import Select from 'ol/interaction/Select.js';
 import { pointerMove } from 'ol/events/condition.js';
 
+
 /**选中feature */
 export default {
     data() {
         return {
             mapObj: null,
-            infoText: '缺省'
+            selectSingleClick: null
         }
     },
     mounted() {
@@ -62,8 +63,7 @@ export default {
 
         // 添加一个用于选择Feature的交互方式
         //选中Circle后改变颜色 不选中状态恢复原样
-        var selectSingleClick = new Select({
-            condition: pointerMove, // 唯一的不同之处，设置鼠标移到feature上就选取 
+        this.selectSingleClick = new Select({
             style: new Style({
                 image: new Circle({
                     radius: 20,
@@ -73,24 +73,15 @@ export default {
                 })
             })
         });
-        this.mapObj.addInteraction(selectSingleClick);
-        // 监听选中事件，然后在事件处理函数中改变被选中的`feature`的样式
-        /*   selectSingleClick.on('select', function(event){
-               let selectFeature=event.selected[0];
-               if(!selectFeature){
-                   return;
-               }
-              var fillColor= selectFeature.getStyle().getImage().getFill().getColor();
-               selectFeature.setStyle(new Style({
-                   image: new Circle({
-                       radius: 20,
-                       fill: new Fill({
-                           color:fillColor=='blue'?'red':'blue'
-                       })
-                   })
-               }));
-           })*/
+        this.mapObj.addInteraction(this.selectSingleClick);
     },
-    methods: {}
+    methods: {
+        unselectFeature() {
+            //手动取消选中
+            this.selectSingleClick.getFeatures().clear();
+            // 也是可以取消选中的，根据情况选择
+            //  this.mapObj..removeInteraction( this.selectSingleClick);
+        }
+    }
 }
 </script>

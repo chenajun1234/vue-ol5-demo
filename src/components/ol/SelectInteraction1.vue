@@ -60,8 +60,8 @@ export default {
        
             // 添加一个用于选择Feature的交互方式
             var selectSingleClick = new Select({
-                // API文档里面有说明，可以设置style参数，用来设置选中后的样式，但没作用，为什么？ 查看SelectInteraction2
-                // style: Style({
+                // API文档里面有说明，可以设置style参数，用来设置选中后的样式，但没作用，为什么？ 
+                // style:new Style({
                 //     image: new Circle({
                 //         radius: 20,
                 //         fill: new Fill({
@@ -89,7 +89,10 @@ export default {
             })
 
             /**
-            为什么在select里面设置style参数了没用？ 因为我们的circle本身就设置了样式，而style参数设置的样式，其实是设置在内部新建的一个layer上的，而OpenLayers 3中，feature的样式优先级是大于layer的样式的优先级的。所以没生效
+            为什么在select里面设置style参数了没用？ 因为circle本身就设置了样式，
+            而style参数设置的样式，其实是设置在内部新建的一个layer上的，而OpenLayers 中，
+            feature的样式优先级是大于layer的样式的优先级的。所以没生效 
+            解决方案:查看SelectInteraction2
             */
     },
     methods: {}

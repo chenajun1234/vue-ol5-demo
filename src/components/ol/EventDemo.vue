@@ -75,6 +75,10 @@ export default {
         this.mapObj.on('moveend', function(event) {
             window.vue.infoText='地图移动事件：moveend;位置:'/*+transform(event.coordinate, 'EPSG:3857', 'EPSG:4326')*/;    
        })
+         this.mapObj.on('postrender', function(event){
+            console.log('-----------postrender')
+         });
+      
     },
     methods: {}
 }

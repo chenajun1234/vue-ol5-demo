@@ -11,7 +11,7 @@
                    {{ item.CNName }}
                 </el-menu-item>  
             </template>
-      </el-submenu>     
+      </el-submenu>      
     </el-menu>
   </el-aside>
   
@@ -46,7 +46,7 @@
     color: #333;
   }
   #map{         
-        height: 500px;
+        height: 700px;
     }
 </style>
 

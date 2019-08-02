@@ -11,7 +11,7 @@ import Map from 'ol/Map.js';
 import View from 'ol/View.js';
 import Feature from 'ol/Feature.js';
 import Point from 'ol/geom/Point.js';
-import { Style, Icon, Fill, Circle } from 'ol/style.js';
+import { Style, Icon, Fill, Circle, RegularShape } from 'ol/style.js';
 import { Tile as TileLayer, Vector as VectorLayer } from 'ol/layer.js';
 import { OSM, Vector as VectorSource, TileDebug } from 'ol/source.js';
 import { transform } from 'ol/proj.js'
@@ -28,7 +28,8 @@ export default {
     },
     mounted() {
         window.vue = this
-        var layers = new VectorLayer({
+        // 创建一个用于存放circle的layer
+        var circleLayers = new VectorLayer({
             source: new VectorSource(),
             style: new Style({
                 //图像样式。
@@ -40,19 +41,44 @@ export default {
                 })
             })
         })
+        //创建一个圆
         let circle = new Feature({
             geometry: new Point(
                 transform([104, 30], 'EPSG:4326', 'EPSG:3857')
             )
         })
-        layers.getSource().addFeature(circle);
+
+        circleLayers.getSource().addFeature(circle);
+        // 创建一个用于存放star的layer
+        var starLayer = new VectorLayer({
+            source: new VectorSource(),
+            style: new Style({
+                //图像样式。
+                image: new RegularShape({
+                    points: 5,
+                    radius1: 20,
+                    radius2: 10,
+                    fill: new Fill({
+                        color: "red"
+                    })
+                })
+            })
+        })
+        //创建一个五角星
+        let star = new Feature({
+            geometry: new Point(
+                transform([104.06, 30.05], 'EPSG:4326', 'EPSG:3857')
+            )
+        })
+        starLayer.getSource().addFeature(star);
+
         this.mapObj = new Map({
             target: 'map',
             layers: [
                 new TileLayer({
                     source: new OSM()
                 }),
-                layers
+                circleLayers, starLayer
             ],
             view: new View({
                 center: transform([104, 30], 'EPSG:4326', 'EPSG:3857'),
@@ -71,25 +97,14 @@ export default {
                         color: 'blue'
                     })
                 })
-            })
+            }),
+            // 关键： 设置过了条件，可以用feature来写过滤，也可以用layer来写过滤
+            filter: function(feature, layer) {
+                return layer === circleLayers;
+            }
         });
         this.mapObj.addInteraction(selectSingleClick);
-        // 监听选中事件，然后在事件处理函数中改变被选中的`feature`的样式
-        /*   selectSingleClick.on('select', function(event){
-               let selectFeature=event.selected[0];
-               if(!selectFeature){
-                   return;
-               }
-              var fillColor= selectFeature.getStyle().getImage().getFill().getColor();
-               selectFeature.setStyle(new Style({
-                   image: new Circle({
-                       radius: 20,
-                       fill: new Fill({
-                           color:fillColor=='blue'?'red':'blue'
-                       })
-                   })
-               }));
-           })*/
+
     },
     methods: {}
 }
