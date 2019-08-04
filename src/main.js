@@ -33,7 +33,9 @@ import ControlDemo from './components/ol/ControlDemo.vue';
 import CustomerControl from './components/ol/CustomerControl.vue';
 import SimpleAnimal from './components/ol/SimpleAnimal.vue';
 import MoveFeatureAnimation from './components/ol/MoveFeatureAnimation.vue';
-
+import FlightAnimation from './components/ol/FlightAnimation.vue';
+import WFSDemo from './components/ol/WFSDemo.vue';
+import WFSOption from './components/ol/WFSOption.vue';
 
 
 //路由
@@ -55,12 +57,13 @@ import Axios from 'axios';
 
 //挂载原型
 Vue.prototype.$ajax = Axios;
+import qs from 'qs'
+Vue.prototype.qs = qs
 
 //路由规则
 let router = new VueRouter({
     routes: [
-        { name: 'Accessible', CNName: 'Accessible', path: '/accessible', component: Accessible },
-        { name: 'Animation', CNName: '移动地图', path: '/animation', component: Animation },
+        { name: 'Accessible', CNName: 'Accessible', path: '/accessible', component: Accessible },   
         { name: 'ArcgisImage', CNName: 'ArcgisImage', path: '/arcgis-image', component: ArcgisImage },
         { name: 'ArcgisTiled', CNName: 'ArcgisTiled', path: '/arcgis-tiled', component: ArcgisTiled },
         { name: 'XYZ', CNName: '万能图', path: '/xyz', component: XYZ },
@@ -82,11 +85,16 @@ let router = new VueRouter({
         { name: 'CustomerEvent', CNName: '自定义事件', path: '/customerEvent', component: CustomerEvent },
         { name: 'SelectInteraction1', CNName: '交互-选中1', path: '/selectInteraction1', component: SelectInteraction1 },
         { name: 'SelectInteraction2', CNName: '交互-选中2', path: '/selectInteraction2', component: SelectInteraction2 },
+        { name: 'SelectFilterStyle', CNName: '交互-选中样式', path: '/selectFilterStyle', component: SelectFilterStyle },        
         { name: 'UnCheckSelected', CNName: '交互-选中-取消选中', path: '/unCheckSelected', component: UnCheckSelected },
         { name: 'ControlDemo', CNName: '控件demo', path: '/controlDemo', component: ControlDemo },
         { name: 'CustomerControl', CNName: '自定义控件', path: '/customerControl', component: CustomerControl } ,
         { name: 'SimpleAnimal', CNName: '简单动画效果', path: '/simpleAnimal', component: SimpleAnimal },
-        { name: 'MoveFeatureAnimation', CNName: '移动动画效果', path: '/moveFeatureAnimation', component: MoveFeatureAnimation }
+        { name: 'Animation', CNName: '移动地图', path: '/animation', component: Animation },
+        { name: 'MoveFeatureAnimation', CNName: '移动动画效果', path: '/moveFeatureAnimation', component: MoveFeatureAnimation },
+        { name: 'FlightAnimation', CNName: '飞行动画效果', path: '/flightAnimation', component: FlightAnimation },
+        { name: 'WFSDemo', CNName: 'WFS Q for GeoServer', path: '/wfsDemo', component: WFSDemo },
+        { name: 'WFSOption', CNName: 'WFS M for GeoServer', path: '/wfsOption', component: WFSOption }
         
     ]
 

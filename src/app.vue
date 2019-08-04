@@ -52,5 +52,15 @@
 
 <script>
   export default {
+   /* proxyTable:{
+        '/geoserver':{
+             // 测试环境
+            target: 'http://localhost:8080',  // 接口域名
+            changeOrigin: true,  //是否跨域
+            pathRewrite: {
+                '^/geoserver': '/'   //需要rewrite重写的,
+            }              
+        }
+    }*/
   };
 </script>

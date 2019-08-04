@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "arc": "^0.1.1",
     "array-includes": "^3.0.3",
     "axios": "^0.18.1",
     "colormap": "^2.3.1",
@@ -18,9 +19,11 @@
     "ol": "6.0.0-beta.6",
     "ol-hashed": "2.0.0",
     "ol-mapbox-style": "4.3.1",
+    "qs.js": "^0.1.12",
     "vue": "^2.5.3",
     "vue-preview": "^1.0.5",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "x2js": "^3.3.1"
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
@@ -34,7 +37,7 @@
     "json-loader": "^0.5.7",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
-    "style-loader": "^0.19.0",    
+    "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",
     "vue-loader": "^13.5.0",
     "vue-template-compiler": "^2.5.3",
