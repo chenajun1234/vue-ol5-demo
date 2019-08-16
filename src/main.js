@@ -13,6 +13,8 @@ import ArcgisTiled from './components/ol/ArcgisTiled.vue';
 import VectorDemo from './components/ol/VectorDemo.vue';
 import DrawFeatures from './components/ol/DrawFeatures.vue';
 import DrawFeatures2 from './components/ol/DrawFeatures2.vue';
+import SnapDemo from './components/ol/SnapDemo.vue';
+
 import WebGLDemo from './components/ol/WebGLDemo.vue';
 import LayerSort from './components/ol/LayerSort.vue';
 import LOD from './components/ol/LOD.vue';
@@ -70,7 +72,10 @@ let router = new VueRouter({
         { name: 'geoJson', CNName: '加载geoJson', path: '/geoJson', component: geoJson },
         { name: 'VectorDemo', CNName: '矢量地图', path: '/vectorDemo', component: VectorDemo },
         { name: 'DrawFeatures', CNName: '绘制地图', path: '/drawFeatures', component: DrawFeatures },
-        { name: 'DrawFeatures2', CNName: '限制绘制地图', path: '/drawFeatures2', component: DrawFeatures2 },        
+        { name: 'DrawFeatures2', CNName: '限制绘制地图', path: '/drawFeatures2', component: DrawFeatures2 },     
+        { name: 'SnapDemo', CNName: '要素捕捉,端点自动连接', path: '/snapDemo', component: SnapDemo }, 
+
+           
         { name: 'WebGLDemo', CNName: 'WebGLDemo', path: '/webGLDemo', component: WebGLDemo },
         { name: 'LayerSort', CNName: '图层叠加及管理', path: '/layerSort', component: LayerSort },
         { name: 'LOD', CNName: 'LOD与分辨率', path: '/LOD', component: LOD },
